@@ -43,8 +43,8 @@ export WARNING="${RED}\e[5m"
 export UNDERLINE="\e[4m"
 
 # // Exporting URL Host
-#export Server_URL="raw.githubusercontent.com/NevermoreSSH/Blueblue/main/test"
-#export Server1_URL="raw.githubusercontent.com/NevermoreSSH/Blueblue/main/limit"
+#export Server_URL="raw.githubusercontent.com/praisedev/Blueblue/main/test"
+#export Server1_URL="raw.githubusercontent.com/praisedev/Blueblue/main/limit"
 #export Server_Port="443"
 #export Server_IP="underfined"
 #export Script_Mode="Stable"
@@ -103,7 +103,7 @@ sed -i '/#trojangrpc$/a\#trg '"$user $exp"'\
 systemctl restart xray
 cat > /home/vps/public_html/trojan-$user.txt <<-END
 ====================================================================
-        https://github.com/NevermoreSSH/Blueblue
+        https://github.com/praisedev/Blueblue
 ====================================================================
               Format Trojan WS/GO/GRPC - BBv2
 ====================================================================

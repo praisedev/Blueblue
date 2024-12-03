@@ -110,7 +110,6 @@ apt --fix-missing update && apt update && apt upgrade -y && apt install -y bzip2
    - Auto-Reboot             : [ON] - 5.00 AM
    - IPv6                    : [OFF/ON]
    - Autoreboot Off          : [ON]
-   - Autobackup Data         : [OFF]
    - AutoKill Multi Login User
    - Auto Delete Expired Account
    - Fully automatic script

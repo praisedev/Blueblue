@@ -44,11 +44,11 @@ make install
 cd
 rm -rf wondershaper
 cd /usr/bin
-wget -O backup "https://${Server_URL}/backup.sh"
-wget -O restore "https://${Server_URL}/restore.sh"
+#wget -O backup "https://${Server_URL}/backup.sh"
+#wget -O restore "https://${Server_URL}/restore.sh"
 wget -O cleaner "https://${Server_URL}/logcleaner.sh"
-chmod +x /usr/bin/backup
-chmod +x /usr/bin/restore
+#chmod +x /usr/bin/backup
+#chmod +x /usr/bin/restore
 chmod +x /usr/bin/cleaner
 cd
 if [ ! -f "/etc/cron.d/cleaner" ]; then
