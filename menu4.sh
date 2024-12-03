@@ -56,14 +56,6 @@ export BOLD="\e[1m"
 export WARNING="${RED}\e[5m"
 export UNDERLINE="\e[4m"
 
-# // Exporting URL Host
-export Server_URL="raw.githubusercontent.com/praisedev/Blueblue/main/test"
-export Server1_URL="raw.githubusercontent.com/praisedev/Blueblue/main/limit"
-export Server_Port="443"
-export Server_IP="underfined"
-export Script_Mode="Stable"
-export Auther=".geovpn"
-
 # // Root Checking
 if [ "${EUID}" -ne 0 ]; then
 		echo -e "${EROR} Please Run This Script As Root User !"
@@ -184,8 +176,6 @@ export pak=$( cat /home/.ver)
 IPVPS=$(curl -sS ipv4.icanhazip.com)
 #IPVPS=$(curl -sS ifconfig.me )
 ISPVPS=$( curl -s ipinfo.io/org )
-daily_usage=$(vnstat -d --oneline | awk -F\; '{print $6}' | sed 's/ //')
-monthly_usage=$(vnstat -m --oneline | awk -F\; '{print $11}' | sed 's/ //')
 ram_used=$(free -m | grep Mem: | awk '{print $3}')
 total_ram=$(free -m | grep Mem: | awk '{print $2}')
 ram_usage=$(echo "scale=2; ($ram_used / $total_ram) * 100" | bc | cut -d. -f1)
@@ -216,8 +206,6 @@ echo -e "${BICyan} │  ${BICyan}Total RAM       :  ${BIWhite}${ram_used}MB / ${
 echo -e "${BICyan} │  ${BICyan}System Uptime   :  ${BIWhite}$uptime${NC}"
 echo -e "${BICyan} │  ${BICyan}Current Domain  :  ${BIWhite}$(cat /etc/xray/domain)${NC}" 
 echo -e "${BICyan} │  ${BICyan}IP-VPS          :  ${BIWhite}$IPVPS${NC}"      
-echo -e "${BICyan} │  ${BICyan}Daily Bandwidth :  ${BIWhite}$daily_usage ${NC}"
-echo -e "${BICyan} │  ${BICyan}Total Bandwidth :  ${BIWhite}$monthly_usage ${NC}"
 echo -e "${BICyan} └────────────────────────────────────────────────────────────┘${NC}"
 echo -e "     ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} TROJAN ${NC}: $resv2r ${NC}: $resdbr"
 echo -e "${BICyan} ┌────────────────────────────────────────────────────────────┐${NC}"
@@ -233,19 +221,16 @@ echo -e "     ${BICyan}[${BIWhite}09${BICyan}] RESTART ${BICyan}${BIYellow}${BIC
 echo -e ""   
 echo -e "     ${BICyan}[${BIWhite}11${BICyan}] ADD HOST/DOMAIN ${BICyan}${BIYellow}${BICyan}${NC}" 
 echo -e "     ${BICyan}[${BIWhite}12${BICyan}] RENEW CERT ${BICyan}${BIYellow}${BICyan}${NC}"       
-echo -e "     ${BICyan}[${BIWhite}13${BICyan}] EDIT BANNER ${BICyan}${BIYellow}${BICyan}${NC}" 
-echo -e "     ${BICyan}[${BIWhite}14${BICyan}] RUNNING STATUS ${BICyan}${BIYellow}${BICyan}${NC}" 
-echo -e "     ${BICyan}[${BIWhite}15${BICyan}] USER BANDWIDTH ${BICyan}${BIYellow}${BICyan}${NC}" 
-echo -e "     ${BICyan}[${BIWhite}16${BICyan}] SPEEDTEST ${BICyan}${BIYellow}${BICyan}${NC}"
-echo -e "     ${BICyan}[${BIWhite}17${BICyan}] CHECK BANDWIDTH ${BICyan}${BIYellow}${BICyan}${NC}"
-echo -e "     ${BICyan}[${BIWhite}18${BICyan}] LIMIT SPEED ${BICyan}${BIYellow}${BICyan}${NC}"
-echo -e "     ${BICyan}[${BIWhite}19${BICyan}] WEBMIN ${BICyan}${BIYellow}${BICyan}${NC}"
-echo -e "     ${BICyan}[${BIWhite}20${BICyan}] INFO SCRIPT ${BICyan}${BIYellow}${BICyan}${NC}" 
-echo -e "     ${BICyan}[${BIWhite}21${BICyan}] CLEAR LOG ${BICyan}${BIYellow}${BICyan}${NC}" 
-echo -e "     ${BICyan}[${BIWhite}22${BICyan}] TASK MANAGER ${BICyan}${BIYellow}${BICyan}${NC}"
-echo -e "     ${BICyan}[${BIWhite}23${BICyan}] DNS CHANGER ${BICyan}${BIYellow}${BICyan}${NC}"
-echo -e "     ${BICyan}[${BIWhite}24${BICyan}] NETFLIX CHECKER ${BICyan}${BIYellow}${BICyan}${NC}"
-echo -e "     ${BICyan}[${BIWhite}25${BICyan}] TENDANG ${BICyan}${BIYellow}${BICyan}${NC}"
+echo -e "     ${BICyan}[${BIWhite}13${BICyan}] RUNNING STATUS ${BICyan}${BIYellow}${BICyan}${NC}" 
+echo -e "     ${BICyan}[${BIWhite}14${BICyan}] SPEEDTEST ${BICyan}${BIYellow}${BICyan}${NC}"
+echo -e "     ${BICyan}[${BIWhite}15${BICyan}] LIMIT SPEED ${BICyan}${BIYellow}${BICyan}${NC}"
+echo -e "     ${BICyan}[${BIWhite}16${BICyan}] WEBMIN ${BICyan}${BIYellow}${BICyan}${NC}"
+echo -e "     ${BICyan}[${BIWhite}17${BICyan}] INFO SCRIPT ${BICyan}${BIYellow}${BICyan}${NC}" 
+echo -e "     ${BICyan}[${BIWhite}18${BICyan}] CLEAR LOG ${BICyan}${BIYellow}${BICyan}${NC}" 
+echo -e "     ${BICyan}[${BIWhite}19${BICyan}] TASK MANAGER ${BICyan}${BIYellow}${BICyan}${NC}"
+echo -e "     ${BICyan}[${BIWhite}20${BICyan}] DNS CHANGER ${BICyan}${BIYellow}${BICyan}${NC}"
+echo -e "     ${BICyan}[${BIWhite}21${BICyan}] NETFLIX CHECKER ${BICyan}${BIYellow}${BICyan}${NC}"
+echo -e "     ${BICyan}[${BIWhite}22${BICyan}] TENDANG ${BICyan}${BIYellow}${BICyan}${NC}"
 echo -e "     ${BICyan}[${BIWhite}x ${BICyan}] EXIT ${BICyan}${BIYellow}${BICyan}${NC}"  
 echo -e "${BICyan} └────────────────────────────────────────────────────────────┘${NC}"
 echo
@@ -264,29 +249,16 @@ case $opt in
 #10) clear ; menu-bckp ;;
 11) clear ; addhost ;;
 12) clear ; genssl ;;
-13) clear ; nano /etc/issue.net ;;
-14) clear ; running ;;
-15) clear ; cek-trafik ;;
-16) clear ; cek-speed ;;
-17) clear ; cek-bandwidth ;;
-18) clear ; limit-speed ;;
-19) clear ; wbm ;;
-20) clear ; cat /root/log-install.txt ;;
-21) clear ; clearlog ;;
-22) clear ; gotop ;;
-23) clear ; dns ;;
-24) clear ; netf ;;
-25) clear ; tendang ;;
-#55) clear ; wget -q -O /usr/bin/xraychanger "https://raw.githubusercontent.com/NevermoreSSH/Xcore-custompath/main/xraychanger.sh" && chmod +x /usr/bin/xraychanger && xraychanger ;;
-66) clear ; bbr ;;
-#77) clear ; wget -q -O /usr/bin/swapram "https://raw.githubusercontent.com/NevermoreSSH/swapram/main/swapram.sh" && chmod +x /usr/bin/swapram && swapram ;;
-#88) clear ; backup ;;
-#99) clear ; restore ;;
-#88) clear ; wget https://raw.githubusercontent.com/NevermoreSSH/Vergil/main2/addons/dns2.sh && chmod +x dns2.sh && ./dns2.sh ;;
-#99) clear ; wget https://raw.githubusercontent.com/NevermoreSSH/Vergil/main/Tunnel/udp.sh && bash udp.sh ;;
-#22) clear ; wget https://raw.githubusercontent.com/praisedev/Blueblue/main/cf.sh && chmod +x cf.sh && ./cf.sh ;;
-#25) clear ; del-xrays ;;
-#30) clear ; user-xrays ;;
+13) clear ; running ;;
+14) clear ; cek-speed ;;
+15) clear ; limit-speed ;;
+16) clear ; wbm ;;
+17) clear ; cat /root/log-install.txt ;;
+18) clear ; clearlog ;;
+19) clear ; gotop ;;
+20) clear ; dns ;;
+21) clear ; netf ;;
+22) clear ; tendang ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo -e "" ; echo "Press any key to back exit" ; sleep 1 ; exit ;;
