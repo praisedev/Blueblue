@@ -5,7 +5,7 @@
 # Auther  : NevermoreSSH
 # (C) Copyright 2022
 # =========================================
-export Server_URL="raw.githubusercontent.com/NevermoreSSH/Blueblue/main"
+export Server_URL="raw.githubusercontent.com/praisedev/Blueblue/main"
 
 clear
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
@@ -35,9 +35,9 @@ green() { echo -e "\\033[32;1m${*}\\033[0m"; }
 red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 
 #curl https://rclone.org/install.sh | bash
-apt install rclone
-printf "q\n" | rclone config
-wget -O /root/.config/rclone/rclone.conf "https://${Server_URL}/rclone.conf"
+#apt install rclone
+#printf "q\n" | rclone config
+#wget -O /root/.config/rclone/rclone.conf "https://${Server_URL}/rclone.conf"
 git clone  https://github.com/MrMan21/wondershaper.git
 cd wondershaper
 make install

@@ -2,7 +2,7 @@
 # =========================================
 # Quick Setup | Script Setup Manager
 # Edition : Stable Edition V1.0
-# Auther  : NevermoreSSH
+# Auther  : praisedev
 # (C) Copyright 2022
 # =========================================
 
@@ -52,12 +52,12 @@ export WARNING="${RED}\e[5m"
 export UNDERLINE="\e[4m"
 
 # // Exporting URL Host
-export Server_URL="raw.githubusercontent.com/NevermoreSSH/Blueblue/main/test"
-export Server1_URL="raw.githubusercontent.com/NevermoreSSH/Blueblue/main/limit"
-export Server_Port="443"
-export Server_IP="underfined"
-export Script_Mode="Stable"
-export Auther=".geovpn"
+#export Server_URL="raw.githubusercontent.com/praisedev/Blueblue/main/test"
+#export Server1_URL="raw.githubusercontent.com/praisedev/Blueblue/main/limit"
+#export Server_Port="443"
+#export Server_IP="underfined"
+#export Script_Mode="Stable"
+#export Auther=".geovpn"
 
 # // Root Checking
 if [ "${EUID}" -ne 0 ]; then
@@ -87,13 +87,13 @@ ver=$VERSION_ID
 country=ID
 state=Indonesia
 locality=Indonesia
-organization=www.aixxy.codes
-organizationalunit=www.aixxy.codes
-commonname=www.aixxy.codes
-email=admin@aixxy.com
+organization=ISENET
+organizationalunit=ISENET
+commonname=praise.asia
+email=admin@praise.asia
 
 # simple password minimal
-wget -q -O /etc/pam.d/common-password "https://raw.githubusercontent.com/NevermoreSSH/Blueblue/main/password"
+wget -q -O /etc/pam.d/common-password "https://raw.githubusercontent.com/praisedev/Blueblue/main/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -131,7 +131,7 @@ cd
 clear 
 
 # Getting websocket ssl stunnel
-wget -q -O /usr/local/bin/ws-stunnel "https://raw.githubusercontent.com/NevermoreSSH/Blueblue/main/ws-stunnel"
+wget -q -O /usr/local/bin/ws-stunnel "https://raw.githubusercontent.com/praisedev/Blueblue/main/ws-stunnel"
 chmod +x /usr/local/bin/ws-stunnel
 
 # Installing Service Ovpn Websocket
@@ -208,7 +208,7 @@ systemctl start rc-local.service >/dev/null 2>&1
 # set time GMT +8
 sleep 1
 echo -e "[ ${green}INFO$NC ] Set zona local time to Asia/Kuala_lumpur GMT+8"
-ln -fs /usr/share/zoneinfo/Asia/Kuala_lumpur /etc/localtime
+ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 
 # set locale
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
@@ -237,7 +237,7 @@ fi
 cd
 echo -e "[ ${green}INFO$NC ] Installing badvpn for game support..."
 #wget -q -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/kenDevXD/0/main/badvpn-udpgw64"
-wget -q -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/NevermoreSSH/Blueblue/main/newudpgw"
+wget -q -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/praisedev/Blueblue/main/newudpgw"
 chmod +x /usr/bin/badvpn-udpgw  >/dev/null 2>&1
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local >/dev/null 2>&1
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local >/dev/null 2>&1
@@ -281,7 +281,7 @@ fi
 
 # Install Stunnel5
 cd /root/
-wget -q "https://raw.githubusercontent.com/NevermoreSSH/Blueblue/main/stunnel5.zip"
+wget -q "https://raw.githubusercontent.com/praisedev/Blueblue/main/stunnel5.zip"
 unzip stunnel5.zip
 cd /root/stunnel
 chmod +x configure
@@ -350,7 +350,7 @@ END
 
 # Service Stunnel5 /etc/init.d/stunnel5
 rm -fr /etc/init.d/stunnel5
-wget -q -O /etc/init.d/stunnel5 "https://raw.githubusercontent.com/NevermoreSSH/Blueblue/main/stunnel5.init"
+wget -q -O /etc/init.d/stunnel5 "https://raw.githubusercontent.com/praisedev/Blueblue/main/stunnel5.init"
 
 # Ubah Izin Akses
 #chmod 600 /etc/stunnel5/stunnel5.pem
@@ -368,16 +368,16 @@ rm -f /usr/local/bin/stunnel4
 
 # banner /etc/issue.net
 sleep 1
-echo -e "[ ${green}INFO$NC ] Settings banner"
-wget -q -O /etc/issue.net "https://raw.githubusercontent.com/NevermoreSSH/Blueblue/main/issue.net"
-chmod +x /etc/issue.net
-echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
-sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
-cat> /etc/issue.net << END
-<font color="red"><b>============================</b></font><br> 
-<font color="white"><b>      PREMIUM SERVICE         </b></font><br> 
-<font color="red"><b>============================</b></font>
-END
+#echo -e "[ ${green}INFO$NC ] Settings banner"
+#wget -q -O /etc/issue.net "https://raw.githubusercontent.com/praisedev/Blueblue/main/issue.net"
+#chmod +x /etc/issue.net
+#echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+#sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
+#cat> /etc/issue.net << END
+#<font color="red"><b>============================</b></font><br> 
+#<font color="white"><b>      PREMIUM SERVICE         </b></font><br> 
+#<font color="red"><b>============================</b></font>
+#END
 
 # Restart Stunnel5
 systemctl daemon-reload >/dev/null 2>&1
@@ -388,7 +388,7 @@ systemctl restart stunnel5 >/dev/null 2>&1
 # Install bbr
 sleep 1
 echo -e "[ ${green}INFO$NC ] Install bbr"
-#Optimasi Speed Mod By NevermoreSSH
+#Optimasi Speed Mod By praisedev
 Add_To_New_Line(){
 	if [ "$(tail -n1 $1 | wc -l)" == "0"  ];then
 		echo "" >> "$1"
@@ -458,55 +458,55 @@ echo -e "[ ${green}INFO$NC ] Install successfully..."
 
 # install fail2ban
 # Instal DDOS Flate
-rm -fr /usr/local/ddos
-mkdir -p /usr/local/ddos >/dev/null 2>&1
+#rm -fr /usr/local/ddos
+#mkdir -p /usr/local/ddos >/dev/null 2>&1
 #clear
-sleep 1
-echo -e "[ ${green}INFO$NC ] Install DOS-Deflate"
-sleep 1
-echo -e "[ ${green}INFO$NC ] Downloading source files..."
-wget -q -O /usr/local/ddos/ddos.conf http://www.inetbase.com/scripts/ddos/ddos.conf
-wget -q -O /usr/local/ddos/LICENSE http://www.inetbase.com/scripts/ddos/LICENSE
-wget -q -O /usr/local/ddos/ignore.ip.list http://www.inetbase.com/scripts/ddos/ignore.ip.list
-wget -q -O /usr/local/ddos/ddos.sh http://www.inetbase.com/scripts/ddos/ddos.sh
-chmod 0755 /usr/local/ddos/ddos.sh
-cp -s /usr/local/ddos/ddos.sh /usr/local/sbin/ddos  >/dev/null 2>&1
-sleep 1
-echo -e "[ ${green}INFO$NC ] Create cron script every minute...."
-/usr/local/ddos/ddos.sh --cron > /dev/null 2>&1
-sleep 1
-echo -e "[ ${green}INFO$NC ] Install successfully..."
-sleep 1
-echo -e "[ ${green}INFO$NC ] Config file at /usr/local/ddos/ddos.conf"
+#sleep 1
+#echo -e "[ ${green}INFO$NC ] Install DOS-Deflate"
+#sleep 1
+#echo -e "[ ${green}INFO$NC ] Downloading source files..."
+#wget -q -O /usr/local/ddos/ddos.conf http://www.inetbase.com/scripts/ddos/ddos.conf
+#wget -q -O /usr/local/ddos/LICENSE http://www.inetbase.com/scripts/ddos/LICENSE
+#wget -q -O /usr/local/ddos/ignore.ip.list http://www.inetbase.com/scripts/ddos/ignore.ip.list
+#wget -q -O /usr/local/ddos/ddos.sh http://www.inetbase.com/scripts/ddos/ddos.sh
+#chmod 0755 /usr/local/ddos/ddos.sh
+#cp -s /usr/local/ddos/ddos.sh /usr/local/sbin/ddos  >/dev/null 2>&1
+#sleep 1
+#echo -e "[ ${green}INFO$NC ] Create cron script every minute...."
+#/usr/local/ddos/ddos.sh --cron > /dev/null 2>&1
+#sleep 1
+#echo -e "[ ${green}INFO$NC ] Install successfully..."
+#sleep 1
+#echo -e "[ ${green}INFO$NC ] Config file at /usr/local/ddos/ddos.conf"
 
 # Banner /etc/issue.net
-rm -fr /etc/issue.net
-rm -fr /etc/issue.net.save
-sleep 1
-echo -e "[ ${green}INFO$NC ] Settings banner"
-wget -q -O /etc/issue.net "https://raw.githubusercontent.com/NevermoreSSH/Blueblue/main/issue.net"
-chmod +x /etc/issue.net
-echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
-sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
+#rm -fr /etc/issue.net
+#rm -fr /etc/issue.net.save
+#sleep 1
+#echo -e "[ ${green}INFO$NC ] Settings banner"
+#wget -q -O /etc/issue.net "https://raw.githubusercontent.com/praisedev/Blueblue/main/issue.net"
+#chmod +x /etc/issue.net
+#echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+#sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # Blokir Torrent
-echo -e "[ ${green}INFO$NC ] Set iptables"
-sleep 1
-sudo iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
-sudo iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
-sudo iptables -A FORWARD -m string --string "find_node" --algo bm -j DROP
-sudo iptables -A FORWARD -m string --algo bm --string "BitTorrent" -j DROP
-sudo iptables -A FORWARD -m string --algo bm --string "BitTorrent protocol" -j DROP
-sudo iptables -A FORWARD -m string --algo bm --string "peer_id=" -j DROP
-sudo iptables -A FORWARD -m string --algo bm --string ".torrent" -j DROP
-sudo iptables -A FORWARD -m string --algo bm --string "announce.php?passkey=" -j DROP
-sudo iptables -A FORWARD -m string --algo bm --string "torrent" -j DROP
-sudo iptables -A FORWARD -m string --algo bm --string "announce" -j DROP
-sudo iptables -A FORWARD -m string --algo bm --string "info_hash" -j DROP
-sudo iptables-save > /etc/iptables.up.rules
-sudo iptables-restore -t < /etc/iptables.up.rules
-sudo netfilter-persistent save >/dev/null 2>&1
-sudo netfilter-persistent reload >/dev/null 2>&1
+#echo -e "[ ${green}INFO$NC ] Set iptables"
+#sleep 1
+#sudo iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
+#sudo iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
+#sudo iptables -A FORWARD -m string --string "find_node" --algo bm -j DROP
+#sudo iptables -A FORWARD -m string --algo bm --string "BitTorrent" -j DROP
+#sudo iptables -A FORWARD -m string --algo bm --string "BitTorrent protocol" -j DROP
+#sudo iptables -A FORWARD -m string --algo bm --string "peer_id=" -j DROP
+#sudo iptables -A FORWARD -m string --algo bm --string ".torrent" -j DROP
+#sudo iptables -A FORWARD -m string --algo bm --string "announce.php?passkey=" -j DROP
+#sudo iptables -A FORWARD -m string --algo bm --string "torrent" -j DROP
+#sudo iptables -A FORWARD -m string --algo bm --string "announce" -j DROP
+#sudo iptables -A FORWARD -m string --algo bm --string "info_hash" -j DROP
+#sudo iptables-save > /etc/iptables.up.rules
+#sudo iptables-restore -t < /etc/iptables.up.rules
+#sudo netfilter-persistent save >/dev/null 2>&1
+#sudo netfilter-persistent reload >/dev/null 2>&1
 
 # remove unnecessary files
 sleep 1
@@ -534,9 +534,9 @@ echo -e "[ ${green}ok${NC} ] Restarting ssh"
 /etc/init.d/dropbear restart >/dev/null 2>&1
 sleep 1
 echo -e "[ ${green}ok${NC} ] Restarting dropbear"
-/etc/init.d/fail2ban restart >/dev/null 2>&1
-sleep 1
-echo -e "[ ${green}ok${NC} ] Restarting fail2ban"
+#/etc/init.d/fail2ban restart >/dev/null 2>&1
+#sleep 1
+#echo -e "[ ${green}ok${NC} ] Restarting fail2ban"
 /etc/init.d/stunnel5 restart >/dev/null 2>&1
 sleep 1
 echo -e "[ ${green}ok${NC} ] Restarting stunnel5"

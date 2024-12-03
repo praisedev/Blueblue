@@ -232,7 +232,7 @@ case $opt in
 20) clear ; cat /root/log-install.txt ;;
 21) clear ; clearlog ;;
 #99) clear ; update ;;
-22) clear ; wget https://raw.githubusercontent.com/NevermoreSSH/Blueblue/main/cf.sh && chmod +x cf.sh && ./cf.sh ;;
+#22) clear ; wget https://raw.githubusercontent.com/NevermoreSSH/Blueblue/main/cf.sh && chmod +x cf.sh && ./cf.sh ;;
 
 0) clear ; menu ;;
 x) exit ;;

@@ -43,12 +43,12 @@ export WARNING="${RED}\e[5m"
 export UNDERLINE="\e[4m"
 
 # // Exporting URL Host
-export Server_URL="raw.githubusercontent.com/NevermoreSSH/Blueblue/main/test"
-export Server1_URL="raw.githubusercontent.com/NevermoreSSH/Blueblue/main/limit"
-export Server_Port="443"
-export Server_IP="underfined"
-export Script_Mode="Stable"
-export Auther=".geovpn"
+#export Server_URL="raw.githubusercontent.com/NevermoreSSH/Blueblue/main/test"
+#export Server1_URL="raw.githubusercontent.com/NevermoreSSH/Blueblue/main/limit"
+#export Server_Port="443"
+#export Server_IP="underfined"
+#export Script_Mode="Stable"
+#export Auther=".geovpn"
 
 # // Root Checking
 if [ "${EUID}" -ne 0 ]; then
@@ -226,11 +226,6 @@ vmesslink5="vmess://$(echo $grpc | base64 -w 0)"
 vmesslink6="vmess://$(echo $ama | base64 -w 0)"
 vmesslink7="vmess://$(echo $ami | base64 -w 0)"
 cat > /home/vps/public_html/vmess-$user.txt <<-END
-====================================================================
-             P R O J E C T  O F  N E V E R M O R E S S H
-                       [Freedom Internet]
-====================================================================
-        https://github.com/NevermoreSSH/Blueblue
 ====================================================================
               Format Vmess WS/GRPC - BBv2
 ====================================================================
