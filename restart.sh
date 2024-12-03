@@ -42,14 +42,6 @@ export BOLD="\e[1m"
 export WARNING="${RED}\e[5m"
 export UNDERLINE="\e[4m"
 
-# // Exporting URL Host
-export Server_URL="raw.githubusercontent.com/praisedev/Blueblue/main/test"
-export Server1_URL="raw.githubusercontent.com/praisedev/Blueblue/main/limit"
-export Server_Port="443"
-export Server_IP="underfined"
-export Script_Mode="Stable"
-export Auther=".geovpn"
-
 # // Root Checking
 if [ "${EUID}" -ne 0 ]; then
 		echo -e "${EROR} Please Run This Script As Root User !"
@@ -69,13 +61,11 @@ echo -e ""
 echo -e ""
 echo -e "    [1] Restart All Services"
 echo -e "    [2] Restart OpenSSH"
-echo -e "    [3] Restart Dropbear"
-echo -e "    [4] Restart Stunnel5"
-echo -e "    [5] Restart Nginx"
-echo -e "    [6] Restart Badvpn"
+echo -e "    [3] Restart Nginx"
+echo -e "    [4] Restart Badvpn"
 echo -e "    [x] Menu"
 echo -e ""
-read -p "    Select From Options [1-6 or x] :  " Restart
+read -p "    Select From Options [1-4 or x] :  " Restart
 echo -e ""
 echo -e "======================================"
 sleep 1
@@ -83,13 +73,9 @@ clear
 case $Restart in
                 1)
                 clear
-                #systemctl restart ws-dropbear.service >/dev/null 2>&1
                 systemctl restart ws-stunnel.service >/dev/null 2>&1
                 systemctl restart xray.service >/dev/null 2>&1
                 /etc/init.d/ssh restart
-                /etc/init.d/dropbear restart
-                /etc/init.d/stunnel5 restart
-                /etc/init.d/fail2ban restart
                 /etc/init.d/cron restart
                 /etc/init.d/nginx restart
                 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 1000
@@ -115,26 +101,6 @@ case $Restart in
                 ;;
                 3)
                 clear
-                /etc/init.d/dropbear restart
-                echo -e ""
-                echo -e "======================================"
-                echo -e ""
-                echo -e "       Dropbear Service Restarted     "
-                echo -e ""
-                echo -e "======================================"
-                ;;
-                4)
-                clear
-                /etc/init.d/stunnel5 restart
-                echo -e ""
-                echo -e "======================================"
-                echo -e ""
-                echo -e "        Stunnel5 Service Restarted    "
-                echo -e ""
-                echo -e "======================================"
-                ;;
-                5)
-                clear
                 /etc/init.d/nginx restart
                 echo -e ""
                 echo -e "======================================"
@@ -143,7 +109,7 @@ case $Restart in
                 echo -e ""
                 echo -e "======================================"
                 ;;
-                6)
+                4)
                 clear
                 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
                 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500

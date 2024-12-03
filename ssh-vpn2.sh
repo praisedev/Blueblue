@@ -131,19 +131,19 @@ cd
 clear 
 
 # Getting websocket ssl stunnel
-wget -q -O /usr/local/bin/ws-stunnel "https://raw.githubusercontent.com/praisedev/Blueblue/main/ws-stunnel"
-chmod +x /usr/local/bin/ws-stunnel
+#wget -q -O /usr/local/bin/ws-stunnel "https://raw.githubusercontent.com/praisedev/Blueblue/main/ws-stunnel"
+#chmod +x /usr/local/bin/ws-stunnel
 
 # Installing Service Ovpn Websocket
-cat > /etc/systemd/system/ws-stunnel.service << END
-[Unit]
-Description=Ovpn Websocket By Akhir Zaman
-Documentation=https://xnxx.com
-After=network.target nss-lookup.target
+#cat > /etc/systemd/system/ws-stunnel.service << END
+#[Unit]
+#Description=Ovpn Websocket By Akhir Zaman
+#Documentation=https://xnxx.com
+#After=network.target nss-lookup.target
 
-[Service]
-Type=simple
-User=root
+#[Service]
+#Type=simple
+#User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
@@ -207,7 +207,7 @@ systemctl start rc-local.service >/dev/null 2>&1
 
 # set time GMT +8
 sleep 1
-echo -e "[ ${green}INFO$NC ] Set zona local time to Asia/Kuala_lumpur GMT+8"
+echo -e "[ ${green}INFO$NC ] Set zona local time to Asia/Jakarta GMT+8"
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 
 # set locale

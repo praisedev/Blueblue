@@ -44,14 +44,6 @@ export BOLD="\e[1m"
 export WARNING="${RED}\e[5m"
 export UNDERLINE="\e[4m"
 
-# // Exporting URL Host
-#export Server_URL="raw.githubusercontent.com/praisedev/Blueblue/main/test"
-#export Server1_URL="raw.githubusercontent.com/praisedev/Blueblue/main/limit"
-#export Server_Port="443"
-#export Server_IP="underfined"
-#export Script_Mode="Stable"
-#export Auther=".geovpn"
-
 # // Exporting Script Version
 export VERSION="1.1"
  
@@ -137,27 +129,13 @@ mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 mkdir -p /usr/local/etc/xray
 
-#rm -fr /etc/xray/domain
 # // String / Request Data
 mkdir -p /var/lib/scrz-prem >/dev/null 2>&1
 echo "IP=$host" >> /var/lib/scrz-prem/ipvps.conf
 echo $host > /etc/xray/domain
-#wget https://raw.githubusercontent.com/praisedev/Blueblue/main/cf.sh && chmod +x cf.sh && ./cf.sh
 
 sleep 2
 
-#install jembot
-#echo -e "$white\033[0;34m┌─────────────────────────────────────────┐${NC}"
-#echo -e "                          ⇱ INSTALL DOMAIN ⇲            "
-#echo -e "$white\033[0;34m└─────────────────────────────────────────┘${NC}"
-#sleep 1
-#wget https://raw.githubusercontent.com/praisedev/Blueblue/main/cf.sh && chmod +x cf.sh && ./cf.sh
-#install jembot
-echo -e "$white\033[0;34m┌─────────────────────────────────────────┐${NC}"
-echo -e " \E[41;1;39m           ⇱ Install Jembot ⇲            \E[0m$NC"
-echo -e "$white\033[0;34m└─────────────────────────────────────────┘${NC}"
-sleep 1 
-wget -q https://raw.githubusercontent.com/praisedev/Blueblue/main/jembot.sh && chmod +x jembot.sh && ./jembot.sh
 #install ssh-vpn
 echo -e "$white\033[0;34m┌─────────────────────────────────────────┐${NC}"
 echo -e " \E[41;1;39m          ⇱ Install SSH / WS ⇲           \E[0m$NC"
@@ -197,11 +175,8 @@ wget -q -O /usr/bin/menu-ss "https://raw.githubusercontent.com/praisedev/Blueblu
 wget -q -O /usr/bin/menu-trojan "https://raw.githubusercontent.com/praisedev/Blueblue/main/menu-trojan.sh"
 wget -q -O /usr/bin/menu-trgo "https://raw.githubusercontent.com/praisedev/Blueblue/main/menu-trgo.sh"
 wget -q -O /usr/bin/menu-ssh "https://raw.githubusercontent.com/praisedev/Blueblue/main/menu-ssh.sh"
-wget -q -O /usr/bin/menu-bckp "https://raw.githubusercontent.com/praisedev/Blueblue/main/menu-bckp-telegram.sh"
-wget -q -O /usr/bin/menu-bckp "https://raw.githubusercontent.com/praisedev/Blueblue/main/menu-bckp-github.sh"
-wget -q -O /usr/bin/bckp "https://raw.githubusercontent.com/praisedev/Blueblue/main/bckpbot.sh"
 wget -q -O /usr/bin/usernew "https://raw.githubusercontent.com/praisedev/Blueblue/main/usernew.sh"
-# wget -q -O /usr/bin/menu "https://raw.githubusercontent.com/praisedev/Blueblue/main/menu.sh"
+ wget -q -O /usr/bin/menu "https://raw.githubusercontent.com/praisedev/Blueblue/main/menu.sh"
 wget -q -O /usr/bin/menu "https://raw.githubusercontent.com/praisedev/Blueblue/main/menu4.sh"
 wget -q -O /usr/bin/wbm "https://raw.githubusercontent.com/praisedev/Blueblue/main/webmin.sh"
 wget -q -O /usr/bin/xp "https://raw.githubusercontent.com/praisedev/Blueblue/main/xp.sh"
@@ -209,10 +184,8 @@ wget -q -O /usr/bin/update "https://raw.githubusercontent.com/praisedev/Blueblue
 wget -q -O /usr/bin/dns "https://raw.githubusercontent.com/praisedev/Blueblue/main/dns.sh"
 wget -q -O /usr/bin/netf "https://raw.githubusercontent.com/praisedev/Blueblue/main/netf.sh"
 wget -q -O /usr/bin/bbr "https://raw.githubusercontent.com/praisedev/Blueblue/main/bbr.sh"
-#wget -q -O /usr/bin/del-xrays "https://raw.githubusercontent.com/praisedev/Blueblue/main/del-xrays.sh"
-#wget -q -O /usr/bin/user-xrays "https://raw.githubusercontent.com/praisedev/Blueblue/main/user-xrays.sh"
-chmod +x /usr/bin/add-ws
-chmod +x /usr/bin/add-ssws
+wget -q -O /usr/bin/del-xrays "https://raw.githubusercontent.com/praisedev/Blueblue/main/del-xrays.sh"
+wget -q -O /usr/bin/user-xrays "https://raw.githubusercontent.com/praisedev/Blueblue/main/user-xrays.sh"
 chmod +x /usr/bin/add-socks
 chmod +x /usr/bin/add-vless
 chmod +x /usr/bin/add-tr
@@ -235,22 +208,18 @@ chmod +x /usr/bin/menu-socks
 chmod +x /usr/bin/menu-trojan
 chmod +x /usr/bin/menu-trgo
 chmod +x /usr/bin/menu-ssh
-#chmod +x /usr/bin/menu-bckp
 chmod +x /usr/bin/menu
-#chmod +x /usr/bin/bckp
 chmod +x /usr/bin/wbm
 chmod +x /usr/bin/xp
 chmod +x /usr/bin/update
 chmod +x /usr/bin/dns
 chmod +x /usr/bin/netf
-#chmod +x /usr/bin/bbr
-#chmod +x /usr/bin/del-xrays
-#chmod +x /usr/bin/user-xrays
+chmod +x /usr/bin/bbr
+chmod +x /usr/bin/del-xrays
+chmod +x /usr/bin/user-xrays
 
 
 # > install gotop
-    #gotop_latest="$(curl -s https://api.github.com/repos/NevermoreSSH/gotop/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
-    gotop_link="https://github.com/praisedev/Blueblue/raw/main/gotop_v4.2.0_linux_amd64.deb"
     curl -sL "$gotop_link" -o /tmp/gotop.deb
     dpkg -i /tmp/gotop.deb >/dev/null 2>&1
 
@@ -264,16 +233,7 @@ echo "0 3 * * * root /usr/bin/xp" >> /etc/crontab
 echo "0 4 * * * root /usr/bin/delete" >> /etc/crontab
 echo "0 7 * * * root /usr/bin/cleaner" >> /etc/crontab
 echo "0 5 * * * root reboot" >> /etc/crontab
-#echo "0 6 * * * root backup" >> /etc/crontab
-#echo "0 23 * * * root backup" >> /etc/crontab
-#echo "5 23 * * * root /usr/bin/backup" >> /etc/crontab
 cd
-
-#cat > /etc/cron.d/re_otm <<-END
-#SHELL=/bin/sh
-#PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-#0 7 * * * root /sbin/reboot
-#END
 
 cat > /etc/cron.d/xp_otm <<-END
 SHELL=/bin/sh
@@ -328,26 +288,10 @@ gg="PM"
 else
 gg="AM"
 fi
-#echo -e "[ ${green}Pleas Wait Update DB ${NC} ]"
-#git clone https://github.com/NevermoreSSH/limit.git /root/limit/ &> /dev/null
-#babu=$(cat /etc/.geovpn/license.key)
-#echo -e "$babu $IP $Masa_Laku_License_Berlaku_Sampai" >> /root/limit/limit.txt
-#cd /root/limit
-#    git config --global user.email "pribadi.no99@gmail.com" &> /dev/null
-#    git config --global user.name "NevermoreSSH" &> /dev/null
-#    rm -fr .git &> /dev/null
-#    git init &> /dev/null
-#    git add . &> /dev/null
-#    git commit -m m &> /dev/null
-#    git branch -M main &> /dev/null
-#    git remote add origin https://github.com/NevermoreSSH/limit
-#    git push -f https://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@github.com/kenDevXD/limit.git &> /dev/null
-#cd
 echo "1.1" >> /home/.ver
-#rm -fr /root/limit
-curl -sS ifconfig.me > /etc/myipvps
+curl -sS ipv4.icanhazip.com > /etc/myipvps
 echo " "
-echo "====================-[ NevermoreSSH TUNNELING ]-===================="
+echo "====================-[ TUNNELING ]-===================="
 echo ""
 echo "------------------------------------------------------------"
 echo ""
@@ -371,7 +315,7 @@ echo "   - Trojan GO               : 443" | tee -a log-install.txt
 echo "   - Sodosok WS/GRPC         : 443" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   >>> Server Information & Other Features"  | tee -a log-install.txt
-echo "   - Timezone                : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
+echo "   - Timezone                : Asia/Jakarta"  | tee -a log-install.txt
 echo "   - Fail2Ban                : [ON]"  | tee -a log-install.txt
 echo "   - Dflate                  : [ON]"  | tee -a log-install.txt
 echo "   - IPtables                : [ON]"  | tee -a log-install.txt
@@ -395,12 +339,9 @@ echo "===============-[ Script Mod By NEVERMORESSH TUNNELING ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
-rm -fr /root/weleh.sh 
-rm -fr /root/jembot.sh 
 rm -fr /root/ssh-vpn2.sh
 rm -fr /root/ins-xray.sh
 rm -fr /root/setup2.sh
-#rm -fr /root/domain
 history -c
 
 read -p "$( echo -e "Press ${orange}[ ${NC}${green}Enter${NC} ${CYAN}]${NC} For Reboot") "
