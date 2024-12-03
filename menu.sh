@@ -218,10 +218,10 @@ case $opt in
 7) clear ; autoreboot ;;
 8) clear ; reboot ;;
 9) clear ; restart ;;
-10) clear ; menu-bckp ;;
+#10) clear ; menu-bckp ;;
 11) clear ; addhost ;;
 12) clear ; genssl ;;
-13) clear ; nano /etc/issue.net ;;
+#13) clear ; nano /etc/issue.net ;;
 14) clear ; running ;;
 15) clear ; cek-trafik ;;
 16) clear ; cek-speed ;;
