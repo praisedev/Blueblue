@@ -180,9 +180,9 @@ menu
 }
 export sem=$( curl -s https://raw.githubusercontent.com/praisedev/Blueblue/main/test/versions)
 export pak=$( cat /home/.ver)
-IPVPS=$(curl -s ipinfo.io/ip )
+#IPVPS=$(curl -s ipinfo.io/ip )
 IPVPS=$(curl -sS ipv4.icanhazip.com)
-IPVPS=$(curl -sS ifconfig.me )
+#IPVPS=$(curl -sS ifconfig.me )
 ISPVPS=$( curl -s ipinfo.io/org )
 daily_usage=$(vnstat -d --oneline | awk -F\; '{print $6}' | sed 's/ //')
 monthly_usage=$(vnstat -m --oneline | awk -F\; '{print $11}' | sed 's/ //')
@@ -215,15 +215,12 @@ echo -e "${BICyan} │  ${BICyan}CPU Info        :  ${BIWhite}$cores Cores @ $fr
 echo -e "${BICyan} │  ${BICyan}Total RAM       :  ${BIWhite}${ram_used}MB / ${total_ram}MB (${ram_usage}%) ${NC}" 
 echo -e "${BICyan} │  ${BICyan}System Uptime   :  ${BIWhite}$uptime${NC}"
 echo -e "${BICyan} │  ${BICyan}Current Domain  :  ${BIWhite}$(cat /etc/xray/domain)${NC}" 
-echo -e "${BICyan} │  ${BICyan}IP-VPS          :  ${BIWhite}$IPVPS${NC}"                  
-#echo -e "${BICyan} │  ${BICyan}ISP-VPS         :  ${BIWhite}$ISPVPS${NC}"  
+echo -e "${BICyan} │  ${BICyan}IP-VPS          :  ${BIWhite}$IPVPS${NC}"      
 echo -e "${BICyan} │  ${BICyan}Daily Bandwidth :  ${BIWhite}$daily_usage ${NC}"
 echo -e "${BICyan} │  ${BICyan}Total Bandwidth :  ${BIWhite}$monthly_usage ${NC}"
 echo -e "${BICyan} └────────────────────────────────────────────────────────────┘${NC}"
-echo -e "     ${BICyan} SSH ${NC}: $ressh"" ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} TROJAN ${NC}: $resv2r"
-echo -e "     ${BICyan} DROPBEAR ${NC}: $resdbr" "${BICyan} SSH-WS ${NC}: $ressshws" Stunnel ${NC}: $sshstunel" "${BICyan}
+echo -e "     ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} TROJAN ${NC}: $resv2r ${NC}: $resdbr"
 echo -e "${BICyan} ┌────────────────────────────────────────────────────────────┐${NC}"
-echo -e "     ${BICyan}[${BIWhite}01${BICyan}] SSHWS       ${WB}[${GB}${ssh}${WB}] ${BICyan}${BIYellow}${BICyan}${NC}" 
 echo -e "     ${BICyan}[${BIWhite}02${BICyan}] VMESS       ${WB}[${GB}${vmess}${WB}] ${BICyan}${BIYellow}${BICyan}${NC}"    
 echo -e "     ${BICyan}[${BIWhite}03${BICyan}] VLESS       ${WB}[${GB}${vless}${WB}] ${BICyan}${BIYellow}${BICyan}${NC}"    
 echo -e "     ${BICyan}[${BIWhite}04${BICyan}] TROJAN      ${WB}[${GB}${tr}${WB}] ${BICyan}${BIYellow}${BICyan}${NC}" 
@@ -233,7 +230,6 @@ echo -e "     ${BICyan}[${BIWhite}06${BICyan}] EXP FILES ${BICyan}${BIYellow}${B
 echo -e "     ${BICyan}[${BIWhite}07${BICyan}] AUTO REBOOT ${BICyan}${BIYellow}${BICyan}${NC}"    
 echo -e "     ${BICyan}[${BIWhite}08${BICyan}] REBOOT ${BICyan}${BIYellow}${BICyan}${NC}"    
 echo -e "     ${BICyan}[${BIWhite}09${BICyan}] RESTART ${BICyan}${BIYellow}${BICyan}${NC}"    
-#echo -e "     ${BICyan}[${BIWhite}10${BICyan}] BACKUP/RESTORE ${BICyan}${BIYellow}${BICyan}${NC}"
 echo -e ""   
 echo -e "     ${BICyan}[${BIWhite}11${BICyan}] ADD HOST/DOMAIN ${BICyan}${BIYellow}${BICyan}${NC}" 
 echo -e "     ${BICyan}[${BIWhite}12${BICyan}] RENEW CERT ${BICyan}${BIYellow}${BICyan}${NC}"       
@@ -250,21 +246,8 @@ echo -e "     ${BICyan}[${BIWhite}22${BICyan}] TASK MANAGER ${BICyan}${BIYellow}
 echo -e "     ${BICyan}[${BIWhite}23${BICyan}] DNS CHANGER ${BICyan}${BIYellow}${BICyan}${NC}"
 echo -e "     ${BICyan}[${BIWhite}24${BICyan}] NETFLIX CHECKER ${BICyan}${BIYellow}${BICyan}${NC}"
 echo -e "     ${BICyan}[${BIWhite}25${BICyan}] TENDANG ${BICyan}${BIYellow}${BICyan}${NC}"
-#echo -e "     ${BICyan}[${BIWhite}25${BICyan}] DELETE XRAYS USER [${BIWhite} $xrays users ${BICyan}] ${BICyan}${BIYellow}${BICyan}${NC}"
-#echo -e "     ${BICyan}[${BIWhite}30${BICyan}] VLESS CONFIG ${BICyan}${BIYellow}${BICyan}${NC}"
-echo -e " "
-#echo -e "     ${BICyan}[${BIWhite}55${BICyan}] XRAY-CORE MENU ${BICyan}${BIYellow}${BICyan}${NC}"
-#echo -e "     ${BICyan}[${BIWhite}66${BICyan}] INSTALL BBRPLUS ${BICyan}${BIYellow}${BICyan}${NC}"
-#echo -e "     ${BICyan}[${BIWhite}77${BICyan}] SWAPRAM MENU ${BICyan}${BIYellow}${BICyan}${NC}"
-#echo -e "     ${BICyan}[${BIWhite}88${BICyan}] BACKUP ${BICyan}${BIYellow}${BICyan}${NC}"
-#echo -e "     ${BICyan}[${BIWhite}99${BICyan}] RESTORE ${BICyan}${BIYellow}${BICyan}${NC}"
-#echo -e "     ${BICyan}[${BIWhite}88${BICyan}] INSTALL SLOWDNS ${BICyan}${BIYellow}${BICyan}${NC}"
-#echo -e "     ${BICyan}[${BIWhite}99${BICyan}] INSTALL UDPCUSTOM ${BICyan}${BIYellow}${BICyan}${NC}" 
 echo -e "     ${BICyan}[${BIWhite}x ${BICyan}] EXIT ${BICyan}${BIYellow}${BICyan}${NC}"  
 echo -e "${BICyan} └────────────────────────────────────────────────────────────┘${NC}"
-#echo -e " ${BICyan}┌─────────────────────────────────────┐${NC}"
-#echo -e " ${BICyan}│  Version      ${NC} : $sem Last Update"    
-#echo -e " ${BICyan}└─────────────────────────────────────┘${NC}"
 echo
 read -p " Select menu : " opt
 echo -e ""
